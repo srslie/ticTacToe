@@ -25,7 +25,6 @@ function move() {
 function displayScores() {
   currentGame.players.xPlayer.displayWins(xScores)
   currentGame.players.oPlayer.displayWins(oScores)
-
 }
 function start() {
   //function loadFromStorage
