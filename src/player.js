@@ -1,15 +1,22 @@
-Set up Player class
-- constructor
-  - properties
-    - is turn
-      - keeps track of turns
-    - wonGames
-      - array of won games
-    - marker
-      - X or O
-  -methods
-    - moves
-      - checks space for move, if so makes mark
-      - adds move to the Game.board to check for win
-    - displayWins
-      - adds the number or the minigame display to their scoreBoard
+class Player {
+  constructor(marker) {
+    this.marker = marker;
+    this.wins = [];
+  }
+
+  mark(space, game) {
+    if (space.innerHTML != 'X' && space.innerHTML != 'O') {
+      var key = space.innerHTML
+      game.board[key] = this.marker
+      space.innerHTML = this.marker
+      space.classList.add('marked')
+    }
+    game.isXturn = !game.isXturn
+    game.turnsTaken++
+    game.checkWin()
+  }
+
+  displayWins(scoreBoard) {
+    scoreBoard.innerHTML = `${this.wins.length}`
+  }
+}

@@ -10,30 +10,42 @@ header {
 
 main {
   display: grid;
-  grid-template-columns: 20% auto 20%;
+  grid-template-columns: 25% auto 25%;
   grid-template-rows: 100vh;
 }
 
 
 .game {
   display: grid;
-  /* place-self: center; */
-  border: 1px solid red;
-  /* height: 100% */
+  grid-template-rows: 10vh 90vh;
+  /* border: 1px solid red; */
+  justify-items: center;
+  font-weight: bold;
 }
-.gameBoard {
-  border: 1px solid green;
+
+.game-board {
+  /* border: 1px solid green; */
   display: grid;
-  grid-template-columns: 20vh 20vh 20vh;
-  grid-template-rows: 20vh 20vh 20vh;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   grid-gap: 2%;
-  place-self: center;
-  width: 90%;
-  height: 90%;
+  width: 40vh;
+  height: 40vh;
+  color: white;
+  background-color: red;
+}
+
+.marked {
+  color: black;
 }
 
 .space {
-  border: 1px solid blue;
-  height: 10%;
-  width: 10%;
+  align-self: stretch;
+  font-size: 10vh;
+  background-color: white;
+}
+
+.x-scores, .o-scores {
+  /* border: 1px solid orange; */
+  overflow: auto;
 }
