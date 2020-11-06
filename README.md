@@ -27,14 +27,13 @@ Project Deadline: Tuesday, November 10, 9pm
 
 Personal Deadline: Thursday, November 5, 10pm
 - [x] set up local files
-- [ ] initialize remote repository
-- [ ] deploy Github page
-- [ ] create this plan
-- [ ] provide plan and links to the PM (instructor)
-- [ ] set-up meetings for check-ins with my mentor, add as collaborator
-- [ ] create barebones HTML skeleton
-- [ ] create minimal CSS to organize the skeleton
-- [ ] pseudocode logic for each classes
+- [x] initialize remote repository
+- [x] create this plan
+- [x] provide plan to PM, add as collaborator
+- [x] set-up meetings with my mentor, add as collaborator
+- [x] create barebones HTML skeleton
+- [x] create minimal CSS to organize the skeleton
+- [x] pseudocode logic for each class, main
 
 Personal Deadline: Friday, November 6, 10pm
 - [ ] create basic classes: ```player``` and ```game```
