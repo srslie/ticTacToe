@@ -1,0 +1,15 @@
+Set up Player class
+- constructor
+  - properties
+    - is turn
+      - keeps track of turns
+    - wonGames
+      - array of won games
+    - marker
+      - X or O
+  -methods
+    - moves
+      - checks space for move, if so makes mark
+      - adds move to the Game.board to check for win
+    - displayWins
+      - adds the number or the minigame display to their scoreBoard
