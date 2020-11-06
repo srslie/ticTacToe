@@ -6,10 +6,14 @@ class Player {
 
   mark(space, game) {
     if (space.innerHTML != 'X' && space.innerHTML != 'O') {
-      key = space.innerHTML
-      game.board.key = this.marker
+      var key = space.innerHTML
+      game.board[key] = this.marker
       space.innerHTML = this.marker
+      space.classList.add('marked')
     }
+    game.isXturn = !game.isXturn
+    game.turnsTaken++
+    game.checkWin()
   }
 
   displayWins(scoreBoard) {
