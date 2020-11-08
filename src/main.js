@@ -1,44 +1,46 @@
-//querySelectors
 var gameBoard = document.querySelector('.game-board')
 var space = document.querySelector('.space')
 var broadcast = document.querySelector('h2')
 var xScores = document.querySelector('.x-scores')
 var oScores = document.querySelector('.o-scores')
 
-//global variables
 var game
 
-//Event Listener
-window.addEventListener('load', start)
+window.addEventListener('load', loadGame)
 gameBoard.addEventListener('click', move)
 
 
-//set up
-function start() {
+function loadGame() {
   //function loadFromStorage
   game = new Game
+  gameBoard.innerHTML = displayBoard(game.board)
 }
 
 function loadFromStorage() {
 
-
 }
 
-//gamePlay
+function displayBoard(someGameBoard) {
+  var boardHTML = ''
+  for (var space in someGameBoard) {
+    boardHTML += `<div class="space" id="${space}">${someGameBoard[space]}</div>`
+  }
+  return boardHTML
+}
+
 function move() {
   game.turnUpkeep()
   mark(event.target.closest('.space'))
+  gameBoard.innerHTML = displayBoard(game.board)
   checkWin()
   changeBroadcast()
-  displayScores()
+  displayHistory()
   checkToRestart()
 }
 
 function mark(space) {
   if (space.innerHTML === '') {
    game.board[space.id] = game.currentPlayer.marker
-   space.innerHTML = game.currentPlayer.marker
-   space.classList.add('marked')
   }
 }
 
@@ -63,13 +65,32 @@ function checkToRestart() {
 }
 
 function newGame() {
-  var newBoardHTML = ''
-  for (var space in game.board) {
-    newBoardHTML += `<div class="space" id="${space}"></div>`
-  }
-  gameBoard.innerHTML = newBoardHTML
   var newGame = new Game(game.players)
   game = newGame
+  gameBoard.innerHTML = displayBoard(game.board)
+}
+
+function displayHistory() {
+  xScores.innerHTML = ''
+  oScores.innerHTML = ''
+  for (var player in game.players) {
+    //var scoreBoard = game.players[player].scoreBoard
+    //displayWins(scoreBoard, game.players[player])
+    //scoreBoard.innerHTML += displayMiniWinBoards(game.players[player])
+  }
+  displayScores()
+  xScores.innerHTML += displayMiniWinBoards(game.players.x)
+  oScores.innerHTML += displayMiniWinBoards(game.players.o)
+}
+
+function displayMiniWinBoards(player) {
+  var miniBoards = ''
+  for (var win in player.wins) {
+    if (player.wins.length) {
+      miniBoards += '<div class="mini-game-board">' + displayBoard(player.wins[win]) + '</div>'
+    }
+  }
+  return miniBoards
 }
 
 function displayScores() {
@@ -78,9 +99,5 @@ function displayScores() {
 }
 
 function displayWins(scoreBoard, player) {
-  scoreBoard.innerHTML = `${player.wins.length}`
-}
-
-function populateMiniDisplay() {
-
+  scoreBoard.innerHTML = `<h3>${player.wins.length}</h3>`
 }

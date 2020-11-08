@@ -1,23 +1,22 @@
 class Game {
   constructor(players) {
-    this.id = Date.now();
     this.players = players || {
       x: new Player('X'),
       o: new Player('O')
     };
-    this.currentPlayer = this.players.x
-    this.turnsTaken = 0;
     this.board = {
-      a1: 'a1',
-      a2: 'a2',
-      a3: 'a3',
-      b1: 'b1',
-      b2: 'b2',
-      b3: 'b3',
-      c1: 'c1',
-      c2: 'c2',
-      c3: 'c3',
+      a1: '',
+      a2: '',
+      a3: '',
+      b1: '',
+      b2: '',
+      b3: '',
+      c1: '',
+      c2: '',
+      c3: '',
    };
+   this.currentPlayer = this.players.x
+   this.turnsTaken = 0;
    this.won = null;
   }
 
@@ -43,7 +42,7 @@ class Game {
 
 
     if (winCondition) {
-      this.currentPlayer.wins.push(this)
+      this.currentPlayer.wins.push(this.board)
       this.won = `${this.currentPlayer.marker} wins!`
     }
   }

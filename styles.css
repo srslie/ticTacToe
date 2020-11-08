@@ -17,6 +17,11 @@ main {
 .x-scores, .o-scores {
   /* border: 1px solid orange; */
   overflow: auto;
+  display: grid;
+  /* height: 100%; */
+  justify-items: center;
+  align-items: start;
+  grid-gap: 2%
 }
 
 
@@ -36,16 +41,25 @@ main {
   grid-gap: 2%;
   width: 40vh;
   height: 40vh;
-  color: white;
-  background-color: red;
-}
-
-.marked {
   color: black;
+  background-color: red;
+  font-size: 10vmax;
 }
 
 .space {
   align-self: stretch;
-  font-size: 10vh;
   background-color: white;
+}
+
+.mini-game-board {
+  /* border: 1px solid green; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 2%;
+  width: 10vh;
+  height: 10vh;
+  color: black;
+  background-color: red;
+  font-size: 2vh
 }
