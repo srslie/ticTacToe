@@ -14,6 +14,11 @@ main {
   grid-template-rows: 100vh;
 }
 
+.x-scores, .o-scores {
+  /* border: 1px solid orange; */
+  overflow: auto;
+}
+
 
 .game {
   display: grid;
@@ -43,9 +48,4 @@ main {
   align-self: stretch;
   font-size: 10vh;
   background-color: white;
-}
-
-.x-scores, .o-scores {
-  /* border: 1px solid orange; */
-  overflow: auto;
 }
