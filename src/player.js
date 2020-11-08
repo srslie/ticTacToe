@@ -14,6 +14,5 @@ class Player {
     if (savedGame != null) {
       this.wins = this.wins.concat(savedGame)
     }
-    console.log(this.wins)
    }
 }
