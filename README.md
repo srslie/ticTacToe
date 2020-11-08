@@ -36,13 +36,13 @@ Personal Deadline: Thursday, November 5, 10pm
 - [x] pseudocode logic for each class, main
 
 Personal Deadline: Friday, November 6, 10pm
-- [ ] create basic classes: ```player``` and ```game```
-- [ ] setup win condition, keep track of turns, validate moves
-- [ ] and be able to play the game without the DOM
+- [x] create basic classes: ```player``` and ```game```
+- [x] setup win condition, keep track of turns, validate moves
+- [x] and be able to play the game without the DOM
 
 Personal Deadline: Saturday, November 7, 10pm
--  [ ] hook up the DOM with user interactions
--  [ ] allow the game to be played on the page
+-  [x] hook up the DOM with user interactions
+-  [x] allow the game to be played on the page
 
 Personal Deadline: Sunday, November 8, 10pm
 -  [ ] figure out localStorage for winCount and miniDisplays
