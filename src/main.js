@@ -35,7 +35,7 @@ function move() {
 }
 
 function mark(space) {
-  if (space.innerHTML != 'X' && space.innerHTML != 'O') {
+  if (space.innerHTML === '') {
    game.board[space.id] = game.currentPlayer.marker
    space.innerHTML = game.currentPlayer.marker
    space.classList.add('marked')
@@ -63,12 +63,12 @@ function checkToRestart() {
 }
 
 function newGame() {
-  var clearBoardHTML = ''
+  var newBoardHTML = ''
   for (var space in game.board) {
-    clearBoardHTML += `<div class="space" id="${space}">${space}</div>`
+    newBoardHTML += `<div class="space" id="${space}"></div>`
   }
-  gameBoard.innerHTML = clearBoardHTML
-  newGame = new Game(game.players)
+  gameBoard.innerHTML = newBoardHTML
+  var newGame = new Game(game.players)
   game = newGame
 }
 
