@@ -11,13 +11,16 @@ gameBoard.addEventListener('click', move)
 
 
 function loadGame() {
-  //function loadFromStorage
   game = new Game
   gameBoard.innerHTML = displayBoard(game.board)
+  loadFromStorage()
+  displayHistory()
 }
 
 function loadFromStorage() {
-
+  for (var player in game.players) {
+      game.players[player].loadWinsFromStorage()
+    }
 }
 
 function displayBoard(someGameBoard) {
@@ -35,6 +38,7 @@ function move() {
   checkWin()
   changeBroadcast()
   displayHistory()
+  saveToStorage()
   checkToRestart()
 }
 
@@ -100,4 +104,12 @@ function displayScores() {
 
 function displayWins(scoreBoard, player) {
   scoreBoard.innerHTML = `<h3>${player.wins.length}</h3>`
+}
+
+function saveToStorage() {
+  for (var player in game.players) {
+    if (game.players[player].wins.length) {
+      game.players[player].saveToStorage()
+    }
+  }
 }
