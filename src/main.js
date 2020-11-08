@@ -39,7 +39,7 @@ function move() {
   changeBroadcast()
   displayHistory()
   saveToStorage()
-  checkToRestart()
+  setTimeout(checkToRestart, 4000)
 }
 
 function mark(space) {
