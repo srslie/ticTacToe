@@ -14,7 +14,7 @@ main {
   grid-template-rows: 100vh;
 }
 
-.x-scores, .o-scores {
+.x-mini-wins, .o-mini-wins {
   /* border: 1px solid orange; */
   overflow: auto;
   display: grid;
@@ -43,7 +43,7 @@ main {
   height: 40vh;
   color: black;
   background-color: red;
-  font-size: 10vmax;
+  font-size: 10vh;
 }
 
 .space {
