@@ -1,8 +1,10 @@
 var gameBoard = document.querySelector('.game-board')
 var space = document.querySelector('.space')
 var broadcast = document.querySelector('h2')
-var xScores = document.querySelector('.x-scores')
-var oScores = document.querySelector('.o-scores')
+var xScore = document.querySelector('.x-score')
+var oScore = document.querySelector('.o-score')
+var xMiniWins = document.querySelector('.x-mini-wins')
+var oMiniWins = document.querySelector('.o-mini-wins')
 
 var game
 
@@ -76,9 +78,11 @@ function newGame() {
 
 function displayHistory() {
   for (var player in game.players) {
-    scoreBoard = game.players[player].marker === 'X' ? xScores : oScores
-    scoreBoard.innerHTML = `<h3>${game.players[player].wins.length}</h3>`
-    scoreBoard.innerHTML += displayMiniWinBoards(game.players[player])
+    var playerMarker =  game.players[player].marker
+    var scoreBoard = playerMarker === 'X' ? xScore : oScore
+    var miniDisplay = playerMarker === 'X' ? xMiniWins : oMiniWins
+    scoreBoard.innerHTML = `<h3>${playerMarker}\'s Score: ${game.players[player].wins.length}</h3>`
+    miniDisplay.innerHTML = displayMiniWinBoards(game.players[player])
   }
 }
 
