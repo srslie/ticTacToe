@@ -57,7 +57,7 @@ function changeBroadcast() {
   if (game.won) {
     broadcast.innerHTML = `${game.won}`
   } else {
-    broadcast.innerHTML = ''
+    broadcast.innerHTML = `${game.currentPlayer.marker}\'s turn:`
   }
 }
 
