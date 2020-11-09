@@ -43,7 +43,7 @@ function move() {
 }
 
 function markBoard(space) {
-  if (space.innerHTML === '') {
+  if (game.board[space.id] === '' & !game.won) {
    game.board[space.id] = game.currentPlayer.marker
   }
 }
@@ -75,16 +75,11 @@ function newGame() {
 }
 
 function displayHistory() {
-  xScores.innerHTML = ''
-  oScores.innerHTML = ''
   for (var player in game.players) {
-    //var scoreBoard = game.players[player].scoreBoard
-    //displayWins(scoreBoard, game.players[player])
-    //scoreBoard.innerHTML += displayMiniWinBoards(game.players[player])
+    scoreBoard = game.players[player].marker === 'X' ? xScores : oScores
+    scoreBoard.innerHTML = `<h3>${game.players[player].wins.length}</h3>`
+    scoreBoard.innerHTML += displayMiniWinBoards(game.players[player])
   }
-  displayScores()
-  xScores.innerHTML += displayMiniWinBoards(game.players.x)
-  oScores.innerHTML += displayMiniWinBoards(game.players.o)
 }
 
 function displayMiniWinBoards(player) {
@@ -95,15 +90,6 @@ function displayMiniWinBoards(player) {
     }
   }
   return miniBoards
-}
-
-function displayScores() {
-  displayWins(xScores, game.players.x)
-  displayWins(oScores, game.players.o)
-}
-
-function displayWins(scoreBoard, player) {
-  scoreBoard.innerHTML = `<h3>${player.wins.length}</h3>`
 }
 
 function saveToStorage() {
