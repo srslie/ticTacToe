@@ -27,23 +27,22 @@ class Game {
 
   checkWinCondition() {
     var markerCheck = this.currentPlayer.marker + this.currentPlayer.marker + this.currentPlayer.marker
-    var winCondition =
-    //rows
-      (this.board.a1 + this.board.a2 + this.board.a3 === markerCheck) ||
-      (this.board.b1 + this.board.b2 + this.board.b3 === markerCheck) ||
-      (this.board.c1 + this.board.c2 + this.board.c3 === markerCheck) ||
-    //columns
-      (this.board.a1 + this.board.b1 + this.board.c1 === markerCheck) ||
-      (this.board.a2 + this.board.b2 + this.board.c2 === markerCheck) ||
-      (this.board.a3 + this.board.b3 + this.board.c3 === markerCheck) ||
-    //diagonals
-      (this.board.a1 + this.board.b2 + this.board.c3 === markerCheck) ||
-      (this.board.a3 + this.board.b2 + this.board.c1 === markerCheck)
-
-
-    if (winCondition) {
-      this.currentPlayer.wins.push(this.board)
-      this.won = `${this.currentPlayer.marker} wins!`
+    var winConditions = {
+      rowA: (this.board.a1 + this.board.a2 + this.board.a3 === markerCheck),
+      rowB: (this.board.b1 + this.board.b2 + this.board.b3 === markerCheck),
+      rowC: (this.board.c1 + this.board.c2 + this.board.c3 === markerCheck),
+      column1: (this.board.a1 + this.board.b1 + this.board.c1 === markerCheck),
+      column2: (this.board.a2 + this.board.b2 + this.board.c2 === markerCheck),
+      column3: (this.board.a3 + this.board.b3 + this.board.c3 === markerCheck),
+      diagonal1: (this.board.a1 + this.board.b2 + this.board.c3 === markerCheck),
+      diagonal2: (this.board.a3 + this.board.b2 + this.board.c1 === markerCheck),
+    }
+    for (var threesome in winConditions) {
+        if (winConditions[threesome]) {
+          console.log(threesome) //add a class that makes a streak animation
+          this.currentPlayer.wins.push(this.board)
+          this.won = `${this.currentPlayer.marker} wins!`
+        }
     }
   }
 
