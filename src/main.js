@@ -33,7 +33,7 @@ function displayBoard(someGameBoard) {
 
 function move() {
   game.turnUpkeep()
-  mark(event.target.closest('.space'))
+  markBoard(event.target.closest('.space'))
   gameBoard.innerHTML = displayBoard(game.board)
   checkWin()
   changeBroadcast()
@@ -42,7 +42,7 @@ function move() {
   setTimeout(checkToRestart, 4000)
 }
 
-function mark(space) {
+function markBoard(space) {
   if (space.innerHTML === '') {
    game.board[space.id] = game.currentPlayer.marker
   }
