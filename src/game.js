@@ -18,6 +18,17 @@ class Game {
    this.currentPlayer = this.players.x
    this.turnsTaken = 0;
    this.won = null;
+   this.winningLine = null
+   this.winConditions = {
+     rowA: ['a1', 'a2', 'a3'],
+     rowB: ['b1', 'b2', 'b3'],
+     rowC: ['c1', 'c2', 'c3'],
+     column1: ['a1', 'b1', 'c1'],
+     column2: ['a2', 'b2', 'c2'],
+     column3: ['a3', 'b3', 'c3'],
+     diagonal1: ['a1', 'b2', 'c3'],
+     diagonal2: ['a3', 'b2', 'c1'],
+   }
   }
 
   turnUpkeep() {
@@ -27,19 +38,10 @@ class Game {
 
   checkWinCondition() {
     var markerCheck = this.currentPlayer.marker + this.currentPlayer.marker + this.currentPlayer.marker
-    var winConditions = {
-      rowA: (this.board.a1 + this.board.a2 + this.board.a3 === markerCheck),
-      rowB: (this.board.b1 + this.board.b2 + this.board.b3 === markerCheck),
-      rowC: (this.board.c1 + this.board.c2 + this.board.c3 === markerCheck),
-      column1: (this.board.a1 + this.board.b1 + this.board.c1 === markerCheck),
-      column2: (this.board.a2 + this.board.b2 + this.board.c2 === markerCheck),
-      column3: (this.board.a3 + this.board.b3 + this.board.c3 === markerCheck),
-      diagonal1: (this.board.a1 + this.board.b2 + this.board.c3 === markerCheck),
-      diagonal2: (this.board.a3 + this.board.b2 + this.board.c1 === markerCheck),
-    }
-    for (var threesome in winConditions) {
-        if (winConditions[threesome]) {
-          console.log(threesome) //add a class that makes a streak animation
+    for (var line in this.winConditions) {
+      var lineValues = this.winConditions[line].map(space => this.board[space])
+        if (lineValues.join('') === markerCheck) {
+          this.winningLine = this.winConditions[line]
           this.currentPlayer.wins.push(this.board)
           this.won = `${this.currentPlayer.marker} wins!`
         }
