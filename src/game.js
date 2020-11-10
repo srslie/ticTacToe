@@ -18,7 +18,7 @@ class Game {
    this.currentPlayer = this.players.x
    this.turnsTaken = 0;
    this.won = null;
-   this.winningLine = null
+   this.winningLine = [];
    this.winConditions = {
      rowA: ['a1', 'a2', 'a3'],
      rowB: ['b1', 'b2', 'b3'],
@@ -43,6 +43,7 @@ class Game {
         if (lineValues.join('') === markerCheck) {
           this.winningLine = this.winConditions[line]
           this.currentPlayer.wins.push(this.board)
+          this.currentPlayer.winningLines.push(this.winningLine)
           this.won = `${this.currentPlayer.marker} wins!`
         }
     }
