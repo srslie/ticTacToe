@@ -1,6 +1,14 @@
-* {
+body {
   font-family: 'Amatic SC', cursive;
   text-align: center;
+}
+
+h1 {
+  font-size: 8vh;
+}
+
+h2 {
+  font-size: 4vh;
 }
 
 main {
