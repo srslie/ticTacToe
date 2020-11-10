@@ -82,7 +82,7 @@ function displayHistory() {
     var playerMarker =  game.players[player].marker
     var scoreBoard = playerMarker === 'X' ? xScore : oScore
     var miniDisplay = playerMarker === 'X' ? xMiniWins : oMiniWins
-    scoreBoard.innerHTML = `<h3>${playerMarker}\'s Score: ${game.players[player].wins.length}</h3>`
+    scoreBoard.innerHTML = `<h2>${playerMarker}\'s Score:<br>${game.players[player].wins.length}</h2>`
     miniDisplay.innerHTML = displayMiniWinBoards(game.players[player])
   }
 }
