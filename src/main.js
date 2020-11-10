@@ -29,7 +29,7 @@ function loadFromStorage() {
 function displayBoard() {
   var boardHTML = ''
   for (var space in game.board) {
-    boardHTML += `<div class="space${game.winningLine.includes(space) ? ' winning' : ''}" id="${space}">${game.board[space]}</div>`
+    boardHTML += `<div class="space${game.winningLine.includes(space) ? ' winning' : ''}" id="${space}">${game.winningLine.includes(space) ? '🍕' : game.board[space]}</div>`
   }
   return boardHTML
 }
