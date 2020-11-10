@@ -1,6 +1,7 @@
 body {
   font-family: 'Amatic SC', cursive;
   text-align: center;
+  margin: 0;
 }
 
 .title-o {
@@ -15,6 +16,7 @@ body {
 h1 {
   font-size: 8vh;
   height: 10vh;
+  margin: 0;
 }
 
 h2 {
@@ -25,6 +27,7 @@ main {
   display: grid;
   grid-template-columns: 25% auto 25%;
   grid-template-rows: 90vh;
+  margin: 0;
 }
 
 .x-mini-wins, .o-mini-wins {
@@ -44,6 +47,7 @@ main {
 }
 
 .game-board {
+  cursor: pointer;
   display: grid;
   grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
   grid-gap: 2%;
