@@ -22,16 +22,13 @@ main {
 .game {
   display: grid;
   grid-template-rows: 10vh 90vh;
-  /* border: 1px solid red; */
   justify-items: center;
   font-weight: bold;
 }
 
 .game-board {
-  /* border: 1px solid green; */
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
   grid-gap: 2%;
   width: 40vh;
   height: 40vh;
@@ -46,10 +43,8 @@ main {
 }
 
 .mini-game-board {
-  /* border: 1px solid green; */
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
   grid-gap: 2%;
   width: 10vh;
   height: 10vh;
