@@ -89,7 +89,7 @@ function displayHistory() {
 
 function displayMiniWinBoards(player) {
   var miniBoards = ''
-  for (var i = 0; i < player.wins.length; i++) {
+  for (var i = player.wins.length - 1; i >= 0; i--) {
     miniBoards += '<div class="mini-game-board">'
       for (space in player.wins[i]) {
         miniBoards += `<div class="space ${player.winningLines[i].includes(space) ? 'winning' : ''}" id="${space}">${player.wins[i][space]}</div>`
