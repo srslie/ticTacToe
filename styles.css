@@ -33,13 +33,13 @@ main {
   width: 40vh;
   height: 40vh;
   color: black;
-  background-color: red;
+  background: red;
   font-size: 10vh;
 }
 
 .space {
   align-self: stretch;
-  background-color: white;
+  background: white;
 }
 
 .mini-game-board {
@@ -49,11 +49,12 @@ main {
   width: 10vh;
   height: 10vh;
   color: black;
-  background-color: red;
+  background: red;
   font-size: 2vh
 }
 
 .winning {
-  background-color: red;
+  background: red;
   color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
