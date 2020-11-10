@@ -13,8 +13,8 @@ gameBoard.addEventListener('click', move)
 
 
 function loadGame() {
-  game = new Game
-  gameBoard.innerHTML = displayBoard(game.board)
+  game = new Game()
+  gameBoard.innerHTML = displayBoard()
   loadFromStorage()
   displayHistory()
 }
@@ -25,29 +25,32 @@ function loadFromStorage() {
     }
 }
 
-function displayBoard(someGameBoard) {
+function displayBoard() {
   var boardHTML = ''
-  for (var space in someGameBoard) {
-    boardHTML += `<div class="space" id="${space}">${someGameBoard[space]}</div>`
+  for (var space in game.board) {
+    boardHTML += `<div class="space ${game.winningLine.includes(space) ? 'winning' : ''}" id="${space}">${game.board[space]}</div>`
   }
   return boardHTML
 }
 
 function move() {
-  game.turnUpkeep()
-  markBoard(event.target.closest('.space'))
-  gameBoard.innerHTML = displayBoard(game.board)
-  checkWin()
-  changeBroadcast()
-  displayHistory()
-  saveToStorage()
-  setTimeout(checkToRestart, 4000)
+  var space = event.target.closest('.space')
+  if (game.board[space.id] === '' && !game.won) {
+   game.turnUpkeep()
+   markBoard(space)
+   checkWin()
+   gameBoard.innerHTML = displayBoard()
+   changeBroadcast()
+   if (game.won) {
+     displayHistory()
+     saveToStorage()
+     setTimeout(checkToRestart, 5000)
+   }
+  }
 }
 
 function markBoard(space) {
-  if (game.board[space.id] === '' & !game.won) {
-   game.board[space.id] = game.currentPlayer.marker
-  }
+  game.board[space.id] = game.currentPlayer.marker
 }
 
 function checkWin() {
@@ -64,16 +67,14 @@ function changeBroadcast() {
 }
 
 function checkToRestart() {
-  if (game.won) {
     newGame()
     broadcast.innerHTML = 'Play again?'
-  }
 }
 
 function newGame() {
   var newGame = new Game(game.players)
   game = newGame
-  gameBoard.innerHTML = displayBoard(game.board)
+  gameBoard.innerHTML = displayBoard()
 }
 
 function displayHistory() {
@@ -88,11 +89,13 @@ function displayHistory() {
 
 function displayMiniWinBoards(player) {
   var miniBoards = ''
-  for (var win in player.wins) {
-    if (player.wins.length) {
-      miniBoards += '<div class="mini-game-board">' + displayBoard(player.wins[win]) + '</div>'
+  for (var i = 0; i < player.wins.length; i++) {
+    miniBoards += '<div class="mini-game-board">'
+      for (space in player.wins[i]) {
+        miniBoards += `<div class="space ${player.winningLines[i].includes(space) ? 'winning' : ''}" id="${space}">${player.wins[i][space]}</div>`
+      }
+    miniBoards += '</div>'
     }
-  }
   return miniBoards
 }
 
