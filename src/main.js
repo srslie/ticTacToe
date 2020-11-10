@@ -1,3 +1,4 @@
+var body = document.querySelector('body')
 var gameBoard = document.querySelector('.game-board')
 var space = document.querySelector('.space')
 var broadcast = document.querySelector('h2')
@@ -69,6 +70,7 @@ function changeBroadcast() {
 function checkToRestart() {
     newGame()
     broadcast.innerHTML = 'Play again?'
+    body.classList.toggle('inverted-body')
 }
 
 function newGame() {
