@@ -29,16 +29,18 @@ function loadFromStorage() {
 function displayBoard() {
   var boardHTML = ''
   for (var space in game.board) {
-    boardHTML += `<div class="space${game.winningLine.includes(space) ? ' winning' : ''}" id="${space}">${game.winningLine.includes(space) ? '🍕' : game.board[space]}</div>`
+    var winning = game.winningLine.includes(space) ? ' winning' : ''
+    var spaceValue = game.winningLine.includes(space) ? '🍕' : game.board[space]
+    boardHTML += `<div class="space${winning}" id="${space}">${spaceValue}</div>`
   }
   return boardHTML
 }
 
 function move() {
-  var space = event.target.closest('.space')
-  if (game.board[space.id] === '' && !game.won) {
+  var spaceId = event.target.closest('.space').id
+  if (game.board[spaceId] === '' && !game.won) {
    game.turnUpkeep()
-   markBoard(space)
+   game.board[spaceId] = game.currentPlayer.marker
    checkWin()
    gameBoard.innerHTML = displayBoard()
    changeBroadcast()
@@ -48,10 +50,6 @@ function move() {
      setTimeout(checkToRestart, 5000)
    }
   }
-}
-
-function markBoard(space) {
-  game.board[space.id] = game.currentPlayer.marker
 }
 
 function checkWin() {
@@ -68,15 +66,10 @@ function changeBroadcast() {
 }
 
 function checkToRestart() {
-    newGame()
+    game = new Game(game.players)
+    gameBoard.innerHTML = displayBoard()
     broadcast.innerHTML = 'Play again?'
     body.classList.toggle('inverted-body')
-}
-
-function newGame() {
-  var newGame = new Game(game.players)
-  game = newGame
-  gameBoard.innerHTML = displayBoard()
 }
 
 function displayHistory() {
@@ -94,7 +87,8 @@ function displayMiniWinBoards(player) {
   for (var i = player.wins.length - 1; i >= 0; i--) {
     miniBoards += '<div class="mini-game-board">'
       for (space in player.wins[i]) {
-        miniBoards += `<div class="space ${player.winningLines[i].includes(space) ? 'winning' : ''}" id="${space}">${player.wins[i][space]}</div>`
+        var winning = player.winningLines[i].includes(space) ? ' winning' : ''
+        miniBoards += `<div class="space${winning}" id="${space}">${player.wins[i][space]}</div>`
       }
     miniBoards += '</div>'
     }
