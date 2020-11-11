@@ -69,7 +69,7 @@ main {
   background: red;
   color: black;
   display: grid;
-  font-size: 2vh
+  font-size: 2vh;
   grid-gap: 1px;
   grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
   height: 10vh;
