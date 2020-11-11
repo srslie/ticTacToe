@@ -31,33 +31,33 @@ main {
 }
 
 .x-mini-wins, .o-mini-wins {
-  overflow: auto;
+  align-items: start;
   display: grid;
+  grid-gap: 2vh;
   height: 60vmin;
   justify-items: center;
-  align-items: start;
-  grid-gap: 2vh;
+  overflow: auto;
 }
 
 .game {
   display: grid;
+  font-weight: bold;
   grid-template-rows: 12vh 78vh;
   justify-items: center;
-  font-weight: bold;
 }
 
 .game-board {
+  background: red;
+  border-radius: 50%;
+  color: black;
   cursor: pointer;
   display: grid;
-  grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
-  grid-gap: 2%;
-  width: 40vh;
-  height: 40vh;
-  color: black;
-  background: red;
   font-size: 10vh;
-  border-radius: 50%;
+  grid-gap: 2%;
+  grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+  height: 40vh;
   padding: 15%;
+  width: 40vh;
 }
 
 .space {
@@ -66,14 +66,14 @@ main {
 }
 
 .mini-game-board {
-  display: grid;
-  grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
-  grid-gap: 1px;
-  width: 10vh;
-  height: 10vh;
-  color: black;
   background: red;
+  color: black;
+  display: grid;
   font-size: 2vh
+  grid-gap: 1px;
+  grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+  height: 10vh;
+  width: 10vh;
 }
 
 .winning {
