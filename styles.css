@@ -33,7 +33,7 @@ main {
 .x-mini-wins, .o-mini-wins {
   overflow: auto;
   display: grid;
-  height: 40vmax;
+  height: 60vmin;
   justify-items: center;
   align-items: start;
   grid-gap: 2vh;
@@ -68,7 +68,7 @@ main {
 .mini-game-board {
   display: grid;
   grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
-  grid-gap: 2%;
+  grid-gap: 1px;
   width: 10vh;
   height: 10vh;
   color: black;
