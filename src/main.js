@@ -1,3 +1,4 @@
+var body = document.querySelector('body')
 var gameBoard = document.querySelector('.game-board')
 var space = document.querySelector('.space')
 var broadcast = document.querySelector('h2')
@@ -28,7 +29,7 @@ function loadFromStorage() {
 function displayBoard() {
   var boardHTML = ''
   for (var space in game.board) {
-    boardHTML += `<div class="space ${game.winningLine.includes(space) ? 'winning' : ''}" id="${space}">${game.board[space]}</div>`
+    boardHTML += `<div class="space${game.winningLine.includes(space) ? ' winning' : ''}" id="${space}">${game.winningLine.includes(space) ? '🍕' : game.board[space]}</div>`
   }
   return boardHTML
 }
@@ -69,6 +70,7 @@ function changeBroadcast() {
 function checkToRestart() {
     newGame()
     broadcast.innerHTML = 'Play again?'
+    body.classList.toggle('inverted-body')
 }
 
 function newGame() {
@@ -82,7 +84,7 @@ function displayHistory() {
     var playerMarker =  game.players[player].marker
     var scoreBoard = playerMarker === 'X' ? xScore : oScore
     var miniDisplay = playerMarker === 'X' ? xMiniWins : oMiniWins
-    scoreBoard.innerHTML = `<h3>${playerMarker}\'s Score: ${game.players[player].wins.length}</h3>`
+    scoreBoard.innerHTML = `<h2>${playerMarker}\'s Score<br>${game.players[player].wins.length}</h2>`
     miniDisplay.innerHTML = displayMiniWinBoards(game.players[player])
   }
 }
