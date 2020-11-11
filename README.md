@@ -33,18 +33,23 @@ Special thanks to my mentor [Scott](https://github.com/sschipke) for help with m
 This is how the site works:
 
 You can win:
+
 ![gif of winning a game](https://media.giphy.com/media/gy0scAe7AGbfgNS9Ho/giphy.gif)
 
 You can draw:
+
 ![gif of a draw](https://media.giphy.com/media/DhUDWSHthNBW5AFWyS/giphy.gif)
 
 You can't click on a square if there's already an X or O in it:
+
 ![gif of click validation](https://media.giphy.com/media/3b9AT6IXCW8o970JSq/giphy.gif)
 
 When a game is won, the screen switches color:
+
 ![gif of color switch](https://media.giphy.com/media/5OFCoD4h1SNoqpIHXd/giphy.gif)
 
 When a player wins, their wins are displayed on the side panels which scroll, and the most recent win is at the top:
+
 ![gif of scrolling on play win displays, how wins populate at the top](https://media.giphy.com/media/dpUu1QdOrMXZPN7JNB/giphy.gif)
 
 ## Support and Future Plans
